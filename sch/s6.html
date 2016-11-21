@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+ <body>
+	<div>
+		<!-- <input type="button" value="测试冒泡事件"> -->
+		<input type="button" value="测试捕获事件">
+	</div>
+</body>
+<script>
+
+		//捕获事件
+		var input = document.getElementsByTagName("input")[0];
+    	var div = document.getElementsByTagName("div")[0];
+    	var body = document.getElementsByTagName("body")[0];
+    	input.addEventListener("click", function(e) {
+    		this.style.border = "5px solid red";
+    		var e = e || window.e;
+    		alert("red");
+    	}, true);
+    	div.addEventListener("click", function(e) {
+    		this.style.border = "5px solid green";
+    		var e = e || window.e;
+    		alert("green");
+    	}, true);
+    	body.addEventListener("click" ,function(e) {
+    		this.style.border = "5px solid yellow";
+    		var e = e || window.e;
+    		alert("yellow");
+    	}, true)
+    	/*
+    	冒泡事件
+    	var input = document.getElementsByTagName("input")[0];
+    	var div = document.getElementsByTagName("div")[0];
+    	var body = document.getElementsByTagName("body")[0];
+    	input.onclick = function(e) {
+    		this.style.border = "5px solid red";
+    		var e = e || window.e;
+    		alert("red");
+    		e.stopPropagation();
+    	}
+    	div.onclick = function(e) {
+    		this.style.border = "5px solid green";
+    		var e = e || window.e;
+    		alert("green");
+    	}
+    	body.onclick = function(e) {
+    		this.style.border = "5px solid yellow";
+    		var e = e || window.e;
+    		alert("yellow");
+    	}*/
+    </script>
+</html>
